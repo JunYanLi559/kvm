@@ -1,0 +1,47 @@
+{% if islogin == '1' %}
+{% extends "base.html" %}
+{% block content %}
+
+<div class="box-body">
+    <table class="table table-bordered" border="1" align="center" style="width: 100%">
+		<tr>
+			<th style="width: 8px">#</th>
+			<th>虚拟机名称</th>
+            <th>CPU</th>
+			<th>内存(KB)</th>
+            <th>剩余内存(KB)</th>
+            <th>状态</th>
+		</tr>
+		{% if vm_info %}
+            {% for vm in vm_info %}
+				<tr>
+					<td align="center">
+						#
+					</td>
+					<td align="center">
+						<a href="/detailVM?vm_name=[{{vm[0]}},{{vm[1]}},{{vm[2]}},{{vm[3]}},{{vm[4]}}]">{{vm[0]}}</a>
+{#                        {{ vm[0] }}#}
+{#                        <a href="detailVM">{{vm[0]}}</a>#}
+					</td>
+					<td align="center">
+						{{vm[1]}}
+					</td>
+					<td align="center">
+						{{vm[2]}}
+					</td>
+					<td align="center">
+						{{vm[3]}}
+					</td>
+                <td align="center">
+						{{vm[4]}}
+					</td>
+			  </tr>
+            {% endfor %}
+		{% endif %}
+    </table>
+</div>
+
+{% endblock %}
+{% else %}
+    <span>{{username}}</span>
+{% endif %}

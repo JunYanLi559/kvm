@@ -1,0 +1,24 @@
+{% if islogin == '1' %}
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <div class="container" >
+        <div class="item">
+            <form action="" method="post">
+                <span style="font-size: large">to</span> <br/>
+                主机:<br/>
+                <input type="text" placeholder="vm_name" name="ip" style="height: 50px;width: 500px" /><br/>
+                <input type="submit" value="submit" style="height: 30px;width: 50px" />
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+<iframe id="vnc" width="1400" height="800" name="vnc" src={{url}}></iframe>
+</div>
+
+{% endblock %}
+{% else %}
+    <span>{{username}}</span>
+{% endif %}
